@@ -9,8 +9,8 @@ const App = () => {
     <div className="App">
       <Router>
         <Fragment>
-          <Route exact path="/" component={Home}/>
           <Route path="/character" component={CharacterInfo}/>
+          <Route exact path="/" component={Home}/>
         </Fragment>
       </Router>
     </div>
