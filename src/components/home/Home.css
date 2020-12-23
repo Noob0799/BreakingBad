@@ -1,3 +1,8 @@
 .home-search {
    margin-bottom: 5%;
 }
+
+.spinner-border {
+   width: 200px;
+   height: 200px;
+}

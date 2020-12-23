@@ -97,15 +97,17 @@ class CharacterInfo extends Component {
                 </div>
             );
         }
+        const spinner = (<div className="spinner-border text-dark m-5"></div>);
+        let element = null;
+        if(!charDetails || !charQuotes) {
+            element = spinner;
+        } else {
+            element = <div>{charDetails} {charQuotes}</div>
+        }
         return (
             <Fragment>
                 <Navbar type='character'/>
-                {
-                    charDetails
-                }
-                {
-                    charQuotes
-                }
+                {element}
             </Fragment>
         );
     }

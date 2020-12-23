@@ -85,24 +85,34 @@ class Home extends Component {
                 characterData.push(this.state.displayData[i]);
             }
         }
+        let element = (
+            <div className="spinner-border text-dark m-5"></div>
+        );
+        if(this.state.data.length>0) {
+            element = (
+                <div>
+                    <Pagination dataSize={this.state.displayData.length} getIndex={this.handlePageChange}/>
+                    <div className="home-search">
+                        <SearchComponent searchData={this.state.data} filteredData={this.handleFilteredData}/>
+                    </div>
+                    <div className="home-data">
+                        {
+                            characterData.map(char => {
+                                return (
+                                    <Link to={{ pathname: '/character', obj: char }}  key={char.char_id} style={{textDecoration: "none"}}>
+                                        <Character char={char}/>
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            );
+        } 
         return (
             <Fragment>
                 <Navbar type='home'/>
-                <Pagination dataSize={this.state.displayData.length} getIndex={this.handlePageChange}/>
-                <div className="home-search">
-                    <SearchComponent searchData={this.state.data} filteredData={this.handleFilteredData}/>
-                </div>
-                <div className="home-data">
-                    {
-                        characterData.map(char => {
-                            return (
-                                <Link to={{ pathname: '/character', obj: char }}  key={char.char_id} style={{textDecoration: "none"}}>
-                                    <Character char={char}/>
-                                </Link>
-                            )
-                        })
-                    }
-                </div>
+                {element}
             </Fragment>
         );
     }
