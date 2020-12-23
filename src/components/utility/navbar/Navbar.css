@@ -9,11 +9,11 @@
 
 .navbar {
     height: 150px;
-    
+    background-color: #093009;
 }
 
 .home-btn {
-    font-size: 50px;
+    font-size: 40px;
     padding: 5%;
     margin-right: 50px;
     border: 2px solid black;

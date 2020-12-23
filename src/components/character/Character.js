@@ -1,6 +1,7 @@
 import React from "react";
 import './Character.css';
 
+//Functional component to render each character card showing name,nickname and actor name with character image
 const Character = (props) => {
     const char = props.char;
     return (

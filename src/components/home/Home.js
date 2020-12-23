@@ -7,14 +7,14 @@ import SearchComponent from '../search/SearchComponent';
 import Axios from 'axios';
 import './Home.css';
 
-
+//Component to display list of characters via pagination and implement searching and filtering. Component rendered at /
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            displayData: [],
-            currentPage: 1
+            data: [],  //to store character data from api
+            displayData: [], //to store data to be displayed
+            currentPage: 1 //to store current page number
         };
     }
 
@@ -35,6 +35,8 @@ class Home extends Component {
 
     componentDidUpdate() {
         let elementRef = '';
+
+        //pagination css effect
         for(let i=1;i<=Math.ceil(this.state.data.length/10);i++) {
             if(i !== this.state.currentPage) {
                 elementRef = document.getElementById("page-no-"+i);
@@ -49,18 +51,21 @@ class Home extends Component {
         }
     }
 
+    //function to sort character data according to char_id
     sortData = (data) => {
         return data.sort((a,b) => Number(a.char_id)-Number(b.char_id));
     }
 
+    //function to handle page change
     handlePageChange = (index) => {
         this.setState({
             currentPage: index
         });
     }
 
+    //function to handle filtered data after searching or filtering and displaying it
     handleFilteredData = (arr, type) => {
-        if(type === 'All') {
+        if(type === 'All') {  //All is for the 'All' option in season dropdown
             this.setState({
                 displayData: [...this.state.data],
                 currentPage: 1
@@ -75,7 +80,7 @@ class Home extends Component {
 
     render() {
         const characterData = [];
-        if(this.state.displayData.length > 0) {
+        if(this.state.displayData.length > 0) {  //handling pagination depending on current page
             for(let i=(this.state.currentPage-1)*10;i<Math.min(this.state.currentPage*10, this.state.displayData.length);i++) {
                 characterData.push(this.state.displayData[i]);
             }

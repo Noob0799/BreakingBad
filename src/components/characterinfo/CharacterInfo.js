@@ -3,17 +3,20 @@ import Axios from "axios";
 import Navbar from '../utility/navbar/Navbar';
 import './CharacterInfo.css';
 
+//Component to display character info at /character route
 class CharacterInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            characterQuotes: [],
-            charObject: {}
+            characterQuotes: [], //to store famous quotes of characters
+            charObject: {} //to store character information
         };
     }
 
     componentDidMount() {
         console.log(this.props.location.obj);
+
+        //store character information in sessionstorage
         if(this.props.location.obj) {
             if(sessionStorage.getItem('state')) {
                 sessionStorage.removeItem('state');
@@ -22,7 +25,12 @@ class CharacterInfo extends Component {
         }
         const object = JSON.parse(sessionStorage.getItem('state'));
         console.log(object);
+
+        //extracting first and last names of characters for fetching quotes
         const name = object.name.split(" ");
+        if(name[0] === 'Henry' || name[0] === 'Gustavo') {
+            name[0] = object.nickname;
+        }
         let fullname = '';
         for(let i=0;i<name.length;i++) {
             if(i===name.length-1) {

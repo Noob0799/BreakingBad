@@ -1,12 +1,13 @@
 import React, {Component, Fragment} from "react";
 import './SearchComponent.css';
 
+//Component to handle search feature
 class SearchComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            characterData: [],
-            filteredSearchResult: [],
+            characterData: [], //to store character data on which searching will be done
+            filteredSearchResult: [], //to store the search result after filtering the rest out
         };
     }
 
@@ -23,6 +24,7 @@ class SearchComponent extends Component {
         return true;
     }
 
+    //function to select the suggested option on searching
     handleSearchClick = (obj) => {
         this.props.filteredData([obj]);
         this.setState({
@@ -30,6 +32,7 @@ class SearchComponent extends Component {
         });
     }
 
+    //function to handle keypress in the searchbar
     handleChange = () => {
         let input = document.getElementById('searchTerm').value;
         console.log(input);
@@ -57,6 +60,7 @@ class SearchComponent extends Component {
         }
     }
 
+    //function to handle change in episode selection for filtering
     handleEpisodeChange = () => {
         const episode = document.getElementById('episode-select').value;
         console.log(episode);
@@ -84,10 +88,6 @@ class SearchComponent extends Component {
         }
     }
 
-    handleReset = () => {
-        this.props.filteredData([], 'All');
-    }
-
     render() {
         const filterOptions = ['All'];
         if(this.state.characterData.length > 0) {
@@ -102,8 +102,8 @@ class SearchComponent extends Component {
             <Fragment>
                 <div className="search">
                     <input type="text" className="searchTerm" id="searchTerm" placeholder="Search by name,nickname or actor name" onKeyUp={this.handleChange}/>
-                    <button type="button" className="searchButton" onClick={this.handleReset}>
-                        <i className="fa fa-refresh"></i>
+                    <button type="button" className="searchButton" disabled>
+                        <i className="fa fa-search"></i>
                     </button>
                 </div>
                 <ul className="searchContainer" id="searchContainer">
