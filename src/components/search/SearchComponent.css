@@ -71,17 +71,64 @@
     margin: 2%;
 }
 
-.episode-select-label, .status-select-label {
+.episode-select-label {
     font-size: 20px;
     font-weight: 600;
     margin-right: 10px;
 }
 
-.episode-select, .status-select {
+.episode-select {
     font-size: 20px;
     font-weight: 600;
     background-color: #ffc107;
     border: 2px solid black;
     cursor: pointer;
     box-shadow: 5px 5px 15px grey;
+}
+
+@media only screen and (max-width: 600px) {
+    .search {
+        width: 95%;
+        padding-left: 5%;
+    }
+
+    .searchTerm {
+        font-size: 15px;
+    }
+
+    .episode-select, .episode-select-label {
+        font-size: 15px;
+    }
+
+    .searchSuggest {
+        font-size: 10px;
+        padding: 10px;
+    }
+ }
+ 
+@media only screen and (max-width: 768px) {
+    .searchTerm {
+        font-size: 17px;
+    }
+
+    .episode-select-label, .episode-select {
+        font-size: 17px;
+    }
+
+    .searchSuggest {
+        font-size: 13px;
+        padding: 7px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .search {
+        width: 90%;
+        padding-left: 10%;
+    }
+
+    .searchContainer {
+        width: 85%;
+        padding-left: 10%;
+    }
 }

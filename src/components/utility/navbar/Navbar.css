@@ -1,7 +1,7 @@
 .nav-title {
     color: #ffc107;
-    font-size: 300%;
-    padding-left: 10%;
+    font-size: 50px;
+    padding-left: 20px;
     white-space: nowrap;
     font-style: italic;
     text-shadow: 2px 2px 8px black;
@@ -9,7 +9,7 @@
 
 .navbar {
     height: 150px;
-    background-color: #093009;
+    background-color: black;
 }
 
 .home-btn {
@@ -17,4 +17,30 @@
     padding: 5%;
     margin-right: 50px;
     border: 2px solid black;
+}
+
+@media only screen and (max-width: 550px) {
+    .home-btn {
+        font-size: 10px;
+        margin-right: 1px;
+    }
+    .nav-title {
+        font-size: 200%;
+        padding-left: 1px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .home-btn {
+        font-size: 20px;
+    }
+    .nav-title {
+        font-size: 250%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .home-btn {
+        font-size: 30px;
+    }
 }
