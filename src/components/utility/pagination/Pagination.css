@@ -1,0 +1,21 @@
+.pagination {
+  position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.pagination .page-no {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  font-weight: 600;
+  background-color: #ffc107;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+.pagination .page-no:hover {
+  background-color: #ddd;
+}

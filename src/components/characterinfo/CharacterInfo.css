@@ -1,0 +1,32 @@
+.img-container {
+    padding: 5%;
+}
+
+.char-img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.details-container {
+    text-align: left;
+    padding: 5%;
+}
+
+.details-container p, .quotes > p {
+    font-size: 20px;
+    font-style: oblique;
+    padding: 5%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.quote-heading {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: left;
+    font-style: italic;
+}

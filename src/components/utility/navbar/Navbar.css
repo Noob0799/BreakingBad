@@ -1,0 +1,20 @@
+.nav-title {
+    color: #ffc107;
+    font-size: 300%;
+    padding-left: 10%;
+    white-space: nowrap;
+    font-style: italic;
+    text-shadow: 2px 2px 8px black;
+}
+
+.navbar {
+    height: 150px;
+    
+}
+
+.home-btn {
+    font-size: 50px;
+    padding: 5%;
+    margin-right: 50px;
+    border: 2px solid black;
+}

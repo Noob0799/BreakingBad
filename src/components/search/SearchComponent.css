@@ -1,0 +1,87 @@
+.search {
+    width: 80%;
+    position: relative;
+    display: flex;
+    padding-left: 20%;
+    padding-top: 4%;
+}
+  
+.searchTerm {
+    width: 100%;
+    border: 3px solid black;
+    border-right: none;
+    padding: 5px;
+    height: 50px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 20px;
+    box-shadow: 5px 5px 15px grey;
+}
+
+.searchButton {
+    width: 70px;
+    height: 50px;
+    border: 3px solid black;
+    background: #ffc107;
+    text-align: center;
+    color: black;
+    border-radius: 0 5px 5px 0;
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 10px;
+    box-shadow: 5px 5px 15px grey;
+    cursor: pointer;
+}
+
+.searchSuggest {
+    width: 90%;
+    height: 40px;
+    background-color:black;
+    border: 0.5px solid gainsboro;
+    color: #ffc107;
+    transition: 1s ease;
+    text-align: left;
+    margin-left: 1%;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.searchContainer {
+    position: absolute;
+    width: 75%;
+    padding-left: 20%;
+    z-index: 5;
+    list-style-type: none;
+}
+
+.search-text {
+    overflow: hidden;
+}
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.filter div {
+    margin: 2%;
+}
+
+.episode-select-label, .status-select-label {
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.episode-select, .status-select {
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #ffc107;
+    border: 2px solid black;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px grey;
+}
