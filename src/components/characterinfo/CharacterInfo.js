@@ -2,6 +2,8 @@ import React, {Component, Fragment} from "react";
 import Axios from "axios";
 import Navbar from '../utility/navbar/Navbar';
 import './CharacterInfo.css';
+import { createStore } from 'redux';
+import charReducer from '../reducer/charReducer';
 
 //Component to display character info at /character route
 class CharacterInfo extends Component {
@@ -9,21 +11,14 @@ class CharacterInfo extends Component {
         super(props);
         this.state = {
             characterQuotes: [], //to store famous quotes of characters
-            charObject: {} //to store character information
+            charObject: null //to store character information
         };
     }
 
     componentDidMount() {
-        console.log(this.props.location.obj);
-
-        //store character information in sessionstorage
-        if(this.props.location.obj) {
-            if(sessionStorage.getItem('state')) {
-                sessionStorage.removeItem('state');
-            }
-            sessionStorage.setItem('state', JSON.stringify(this.props.location.obj));
-        }
-        const object = JSON.parse(sessionStorage.getItem('state'));
+        const store = createStore(charReducer);
+        console.log(store.getState());
+        const object = store.getState().charDetails;
         console.log(object);
 
         //extracting first and last names of characters for fetching quotes
@@ -50,13 +45,6 @@ class CharacterInfo extends Component {
             .catch(error => {
                 console.log({error});
             })
-    }
-
-    static getDerivedStateFromProps(nextProps,prevState) {
-        const object = JSON.parse(sessionStorage.getItem('state'));
-        return {
-            charObject: object
-        };
     }
 
     render() {

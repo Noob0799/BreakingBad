@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from "react";
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import Navbar from '../utility/navbar/Navbar';
 import Pagination from '../utility/pagination/Pagination';
 import Character from '../character/Character';
 import SearchComponent from '../search/SearchComponent';
 import Axios from 'axios';
 import './Home.css';
+import { createStore } from 'redux';
+import charReducer from '../reducer/charReducer';
 
 //Component to display list of characters via pagination and implement searching and filtering. Component rendered at /
 class Home extends Component {
@@ -78,6 +80,12 @@ class Home extends Component {
         }
     }
 
+    sendDataToCharacterInfo = (obj) => {
+        const store = createStore(charReducer);
+        store.dispatch({type: 'UPDATE_CHAR_INFO', charObj: obj});
+        this.props.history.push('/character');
+    }
+
     render() {
         const characterData = [];
         if(this.state.displayData.length > 0) {  //handling pagination depending on current page
@@ -96,9 +104,9 @@ class Home extends Component {
                     {
                         characterData.map(char => {
                             return (
-                                <Link to={{ pathname: '/character', obj: char }}  key={char.char_id} style={{textDecoration: "none"}}>
+                                <div onClick={() => {this.sendDataToCharacterInfo(char)}} key={char.char_id}>
                                     <Character char={char}/>
-                                </Link>
+                                </div>
                             )
                         })
                     }
